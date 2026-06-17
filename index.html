@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael O'Regan</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="assets/stuck_out_tongue_apple.png">
+    <audio id="pronunciationSound" src="assets/pronunciation.mp3" preload="auto"></audio>
+
+    <link rel="stylesheet" href="https://use.typekit.net/xvf5iuk.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="container">
+            <div class="intro">
+                <p class="text-base">
+                    <a href="index.html">Michael O'Regan</a> (/ˈmaɪ.kəl oʊˈɹiː.gən/ <a href="#"
+                        onclick="document.getElementById('pronunciationSound').play(); return false;">[speak]</a>) is a
+                    graphic
+                    designer in Toronto, ON, currently pursuing a Bachelor of <a
+                        href="https://ampd.yorku.ca/department-of-design/design/">Design at York University</a>. He
+                    welcomes
+                    you
+                    graciously into his web portfolio; it smells like fresh milk, eggs, fish, shellfish, tree nuts,
+                    peanuts,
+                    wheat, soybeans, and sesame. Reach him by email at <a
+                        href="mailto:moregan@my.yorku.ca">moregan@my.yorku.ca</a>.
+                </p>
+            </div>
+            <div class="navigation">
+                <p class="text-base">
+                    <a href="#projects" class="nav-link" data-section="projects-section">Projects</a> &middot;
+                    <a href="#resume" class="nav-link" data-section="resume-section">Resume</a> &middot;
+                    <a href="#portfolio" class="nav-link" data-section="portfolio-section">Portfolio</a>
+                </p>
+            </div>
+
+            <!-- CAROUSEL -->
+            <div id="projects-section" class="content-section" hidden>
+                <div class="projects-carousel">
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
+                            <figure class="carousel-slide">
+                                <img src="https://placehold.co/600x400" alt="Project 1" width="600" height="400">
+                            </figure>
+                            <figure class="carousel-slide">
+                                <img src="https://placehold.co/600x400" alt="Project 2" width="600" height="400">
+                            </figure>
+                            <figure class="carousel-slide">
+                                <img src="https://placehold.co/600x400" alt="Project 3" width="600" height="400">
+                            </figure>
+                            <figure class="carousel-slide">
+                                <img src="https://placehold.co/600x400" alt="Project 4" width="600" height="400">
+                            </figure>
+                            <figure class="carousel-slide">
+                                <img src="https://placehold.co/600x400" alt="Project 5" width="600" height="400">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button type="button" class="carousel-btn" data-carousel-prev
+                            aria-label="Previous project">Previous</button>
+                        <button type="button" class="carousel-btn" data-carousel-next
+                            aria-label="Next project">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resume-section" class="content-section" hidden>
+                <div class="pdf-container">
+                    <iframe class="pdf" src="assets/MichaelORegan_Resume_2026.pdf#zoom=100" title="Resume"
+                        frameborder="0"></iframe>
+                </div>
+                <p class="text-sm">
+                    <a href="assets/MichaelORegan_Resume_2026.pdf" class="link-sm" download>Download PDF</a>
+                </p>
+            </div>
+        </header>
+
+        <footer class="container">
+            <p class="text-sm">
+                Updated 16 June 2026, 6:59 PM EST
+            </p>
+        </footer>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>

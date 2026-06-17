@@ -1,0 +1,275 @@
+/*--------------------------------------------------------------
+# TOKENS
+---------------------------------------------------------------*/
+
+:root {
+    --space: 1.2rem;
+    --content-width: 800px;
+    --pdf-width: 600px;
+
+    --debug-outline: red;
+
+    --background: #f5f5f5;
+    --normal-text: #c6c6c6;
+    --link-static: #000000;
+    --link-hover: #ff00ff;
+    --link-active: #0000ff;
+    --shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+
+}
+
+::selection {
+    background: black;
+    color: white;
+}
+
+/*--------------------------------------------------------------
+# RESET
+---------------------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# PAGE LAYOUT
+---------------------------------------------------------------*/
+
+body {
+    font-size: 24px;
+
+    /**/ background: var(--normal-text); /**/
+    
+    /*background-image: url("https://web.archive.org/web/20090903062816im_/http://www.geocities.com/super_saiyan_vegeta112786/gohankkha.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;*/
+
+    color: var(--normal-text);
+}
+
+main {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: var(--space);
+    margin-right: var(--space);
+    
+    gap: 6rem;
+
+    background: var(--background);
+
+}
+
+header {
+    flex: 1;
+    padding-top: var(--space);
+    gap: var(--space);
+}
+
+footer {
+    margin-bottom: var(--space);
+}
+
+/*--------------------------------------------------------------
+# WRAPPERS
+---------------------------------------------------------------*/
+
+.container {
+    max-width: var(--content-width);
+
+    display: flex;
+    flex-direction: column;
+
+    outline-style: solid;
+    outline-color: var(--debug-outline);
+    outline-width: 1px;
+}
+
+.navigation {
+    outline-style: solid;
+    outline-color: var(--debug-outline);
+    outline-width: 1px;
+}
+
+.nav-link.is-active {
+    color: var(--link-active);
+}
+
+.content-section[hidden] {
+    display: none !important;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+
+.intro {
+    outline-style: solid;
+    outline-color: var(--debug-outline);
+    outline-width: 1px;
+}
+
+/*--------------------------------------------------------------
+# TYPOGRAPHY
+---------------------------------------------------------------*/
+
+.text-sm {
+    font-family: "Menlo", monospace;
+    font-size: 0.667em;
+    font-weight: 400;
+    
+    padding-left: 1.2rem ;
+    text-indent: -1.2rem ;
+
+    line-height: 1.2rem;
+}
+
+.text-base {
+    font-family: "schoolbook", serif;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.text-lg {
+    font-family: "schoolbook", serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.text-xl {
+    font-family: "schoolbook", serif;
+    font-size: 2.25em;
+    font-weight: 400;
+}
+
+/* LINKS */
+a {
+    color: var(--link-static);
+    font-style: italic;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+.link-sm {
+    color: var(--link-static);
+}
+
+/*--------------------------------------------------------------
+# PROJECTS CAROUSEL
+---------------------------------------------------------------*/
+
+.projects-carousel {
+    z-index: 100;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+
+    background:antiquewhite;
+}
+
+.carousel-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    background: mediumslateblue;
+}
+
+.carousel-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track {
+    display: flex;
+    gap: var(--space);
+    width: max-content;
+    padding-inline: max(var(--space), calc(50vw - 300px));
+}
+
+.carousel-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: left;
+    scroll-snap-stop: always;
+
+    margin: 0;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 600px;
+    max-width: none;
+    height: auto;
+}
+
+.carousel-controls {
+    display: flex;
+    gap: var(--space);
+    padding-inline: var(--space);
+
+    background: aquamarine
+}
+
+.carousel-btn {
+    border: none;
+    background: none;
+    padding: 0;
+
+    font-family: "Menlo", monospace;
+    font-size: 0.667em;
+    font-style: normal;
+    color: var(--link-static);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.carousel-btn:hover {
+    color: var(--link-hover);
+}
+
+/*--------------------------------------------------------------
+# PDF EMBED
+---------------------------------------------------------------*/
+
+.pdf-container {
+    max-width: 600px;
+
+    outline-style: solid;
+    outline-color: var(--debug-outline);
+    outline-width: 1px;
+}
+
+.pdf {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 8.5 / 11;
+    border: none;
+
+    border-radius: 5px;
+
+    box-shadow: var(--shadow);
+    outline-color: var(--debug-outline);
+    outline-width: 1px;
+}
+
+
+
