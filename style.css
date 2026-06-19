@@ -7,7 +7,8 @@
     --content-width: 800px;
     --pdf-width: 600px;
 
-    --debug-outline: red;
+    --debug-outline: transparent;
+    --debug-outline-2: blue;
 
     --background: #f5f5f5;
     --normal-text: #c6c6c6;
@@ -16,6 +17,7 @@
     --link-active: #0000ff;
     --shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 
+    /* cursor: url("assets/stuck_out_tongue_apple.png"), default; */
 }
 
 ::selection {
@@ -44,7 +46,7 @@ html {
 body {
     font-size: 24px;
 
-    /**/ background: var(--normal-text); /**/
+    /**/ background: var(--background); /**/
     
     /*background-image: url("https://web.archive.org/web/20090903062816im_/http://www.geocities.com/super_saiyan_vegeta112786/gohankkha.gif");
     background-size: cover;
@@ -60,8 +62,9 @@ main {
     display: flex;
     flex-direction: column;
 
-    margin-left: var(--space);
-    margin-right: var(--space);
+    /* margin-left: var(--space); */
+    margin-left: max(5vw, var(--space));
+    margin-right: max(5vw, var(--space));
     
     gap: 6rem;
 
@@ -94,7 +97,50 @@ footer {
     outline-width: 1px;
 }
 
-.navigation {
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+    
+    outline-style: solid;
+    outline-color: var(--debug-outline);
+    outline-width: 1px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+
+    align-items: center;
+
+    padding: calc(var(--space) * 2);
+
+    /* background: gray; */
+    
+    outline-style: solid;
+    outline-color: var(--debug-outline-2);
+    outline-width: 1px;
+}
+
+.image {
+    width: min(100%, 800px);
+    height: auto;
+    display: block;
+}
+
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+
+.caption {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
     outline-style: solid;
     outline-color: var(--debug-outline);
     outline-width: 1px;
@@ -114,17 +160,11 @@ footer {
     gap: var(--space);
 }
 
-.intro {
-    outline-style: solid;
-    outline-color: var(--debug-outline);
-    outline-width: 1px;
-}
-
 /*--------------------------------------------------------------
 # TYPOGRAPHY
 ---------------------------------------------------------------*/
 
-.text-sm {
+.text-slug {
     font-family: "Menlo", monospace;
     font-size: 0.667em;
     font-weight: 400;
@@ -135,20 +175,31 @@ footer {
     line-height: 1.2rem;
 }
 
+.text-sm {
+    font-family: "SchoolBook";
+    font-size: 0.667em;
+    font-weight: 400;
+    
+    padding-left: 1.2rem ;
+    text-indent: -1.2rem ;
+
+    line-height: 1.2rem;
+}
+
 .text-base {
-    font-family: "schoolbook", serif;
+    font-family: "SchoolBook", serif;
     font-size: 1em;
     font-weight: 400;
 }
 
 .text-lg {
-    font-family: "schoolbook", serif;
+    font-family: "SchoolBook", serif;
     font-size: 1.5em;
     font-weight: 400;
 }
 
 .text-xl {
-    font-family: "schoolbook", serif;
+    font-family: "SchoolBook", serif;
     font-size: 2.25em;
     font-weight: 400;
 }
@@ -167,82 +218,6 @@ a:hover {
 
 .link-sm {
     color: var(--link-static);
-}
-
-/*--------------------------------------------------------------
-# PROJECTS CAROUSEL
----------------------------------------------------------------*/
-
-.projects-carousel {
-    z-index: 100;
-    width: auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
-
-    background:antiquewhite;
-}
-
-.carousel-viewport {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    background: mediumslateblue;
-}
-
-.carousel-viewport::-webkit-scrollbar {
-    display: none;
-}
-
-.carousel-track {
-    display: flex;
-    gap: var(--space);
-    width: max-content;
-    padding-inline: max(var(--space), calc(50vw - 300px));
-}
-
-.carousel-slide {
-    flex: 0 0 auto;
-    scroll-snap-align: left;
-    scroll-snap-stop: always;
-
-    margin: 0;
-}
-
-.carousel-slide img {
-    display: block;
-    width: 600px;
-    max-width: none;
-    height: auto;
-}
-
-.carousel-controls {
-    display: flex;
-    gap: var(--space);
-    padding-inline: var(--space);
-
-    background: aquamarine
-}
-
-.carousel-btn {
-    border: none;
-    background: none;
-    padding: 0;
-
-    font-family: "Menlo", monospace;
-    font-size: 0.667em;
-    font-style: normal;
-    color: var(--link-static);
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.carousel-btn:hover {
-    color: var(--link-hover);
 }
 
 /*--------------------------------------------------------------

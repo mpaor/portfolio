@@ -17,23 +17,3 @@ navLinks.forEach((link) => {
         showSection(link.dataset.section);
     });
 });
-
-function initProjectsCarousel() {
-    const carousel = document.querySelector(".projects-carousel");
-    if (!carousel) return;
-
-    const slides = carousel.querySelectorAll(".carousel-slide");
-    const prevBtn = carousel.querySelector("[data-carousel-prev]");
-    const nextBtn = carousel.querySelector("[data-carousel-next]");
-    let index = 0;
-
-    function goTo(nextIndex) {
-        index = (nextIndex + slides.length) % slides.length;
-        slides[index].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-    }
-
-    prevBtn?.addEventListener("click", () => goTo(index - 1));
-    nextBtn?.addEventListener("click", () => goTo(index + 1));
-}
-
-initProjectsCarousel();
