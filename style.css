@@ -7,8 +7,8 @@
     --content-width: 800px;
     --pdf-width: 600px;
 
-    --debug-outline: transparent;
-    --debug-outline-2: blue;
+    --debug-outline: red;
+    --debug-outline-2: transparent;
 
     --background: #f5f5f5;
     --normal-text: #c6c6c6;
@@ -62,9 +62,11 @@ main {
     display: flex;
     flex-direction: column;
 
-    /* margin-left: var(--space); */
-    margin-left: max(5vw, var(--space));
-    margin-right: max(5vw, var(--space));
+    /**/ margin-left: var(--space); 
+    margin-right: var(--space); /**/
+
+    /* margin-left: max(5vw, var(--space));
+    margin-right: max(5vw, var(--space)); /**/
     
     gap: 6rem;
 
@@ -80,6 +82,12 @@ header {
 
 footer {
     margin-bottom: var(--space);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: black;
 }
 
 /*--------------------------------------------------------------
@@ -114,7 +122,7 @@ footer {
 
     align-items: center;
 
-    padding: calc(var(--space) * 2);
+    padding: calc(var(--space));
 
     /* background: gray; */
     
@@ -128,7 +136,6 @@ footer {
     height: auto;
     display: block;
 }
-
 
 .project-container {
     display: flex;
