@@ -127,7 +127,7 @@ animationsToggle.addEventListener("click", (event) => {
 
 const screensaver = document.getElementById("screensaver");
 
-let idleTime = 40000;
+let idleTime = 41000;
 let idleTimer = setTimeout(activateScreensaver, idleTime);
 
 let circleTime = 1000;
