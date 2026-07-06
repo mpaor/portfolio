@@ -13,6 +13,9 @@
   --debug-outline-2: blue;
   --debug-outline-3: transparent;
 
+  --black: #000000;
+  --white: #ffffff;
+
   --background: #f5f5f5;
   --normal-text: #c6c6c6;
   --link-static: #000000;
@@ -31,8 +34,19 @@
 }
 
 ::selection {
-  background: black;
-  color: white;
+  background: #000000;
+  color: #ffffff;
+}
+
+body.is-dark {
+  --background: #000000;
+  --normal-text: #6c6c6c;
+  --link-static: #ffffff;
+}
+
+body.is-dark ::selection {
+  background: #ffffff;
+  color: #000000;
 }
 
 /*--------------------------------------------------------------
@@ -124,8 +138,8 @@ footer {
 
 hr {
   border: none;
-  height: calc(var(--space) * 2);
-  background: blue;
+  height: 1px;
+  background: var(--link-static);
 }
 
 /*--------------------------------------------------------------
@@ -269,7 +283,7 @@ video::-webkit-media-controls-picture-in-picture-button {
 ---------------------------------------------------------------*/
 
 .text-slug {
-  font-family: "Apple Chancery", monospace;
+  font-family: "Courier", monospace;
   font-size: 0.667em;
   font-weight: 400;
 }
@@ -370,4 +384,76 @@ a:hover {
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+/*--------------------------------------------------------------
+# SETTINGS PANEL
+---------------------------------------------------------------*/
+
+#settings-panel {
+  position: fixed;
+  top: calc(var(--space) * 0);
+  right: calc(var(--space) * 0.5);
+
+  width: fit-content;
+
+  gap: calc(var(--space) * 0.5);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  padding: var(--space);
+  box-sizing: border-box;
+
+  background: rgba(128, 128, 128, 0.5);
+  transition: background 0.2s ease;
+
+  backdrop-filter: blur(7px);
+  border-radius: var(--space);
+
+  font-family: "Courier", monospace;
+  font-size: 0.667em;
+  font-weight: 400;
+
+  z-index: 1000;
+}
+
+#settings-panel.is-open {
+  background: rgba(0, 255, 0, 0.5);
+  box-shadow: var(--shadow);
+}
+
+#settings-panel a {
+  font-style: normal;
+}
+
+.settings-link.is-active {
+  color: var(--link-active);
+}
+
+.settings-link.is-active:hover {
+  color: var(--link-hover);
+}
+
+.settings-section[hidden] {
+  display: none !important;
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  font-variant-numeric: lining-nums;
+}
+
+.toggle-symbol {
+  display: inline-block;
+  transform: translateY(0.1rem);
 }

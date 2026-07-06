@@ -67,6 +67,61 @@ descriptionToggles.forEach((toggle) => {
 });
 
 //---------------------------------------------------------------
+// SETTINGS PANEL EVENT LISTENERS
+//---------------------------------------------------------------
+
+const settingsPanel = document.getElementById("settings-panel");
+const settingsToggle = document.getElementById("settingsToggle");
+const settingsSection = document.getElementById("settings");
+
+if (settingsPanel) {
+  settingsPanel.addEventListener("hover", (event) => {
+    event.stopPropagation();
+    settingsPanel.classList.add("is-open");
+  });
+}
+
+if (settingsToggle && settingsSection) {
+  settingsToggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    const isHidden = settingsSection.hidden;
+    settingsSection.hidden = !isHidden;
+    settingsPanel.classList.toggle("is-open", isHidden);
+    settingsToggle.innerHTML = isHidden
+      ? '[<span class="toggle-symbol">−</span>] Accessibility'
+      : '[<span class="toggle-symbol">+</span>] Accessibility';
+    settingsToggle.classList.toggle("is-active", isHidden);
+  });
+}
+
+const colourModeToggle = document.getElementById("colourModeToggle");
+const animationsToggle = document.getElementById("animationsToggle");
+const sailorVenusImg = document.querySelector(
+  'img[src="assets/sailor-venus.gif"]',
+);
+
+colourModeToggle.addEventListener("click", (event) => {
+  event.preventDefault();
+  const isDark = document.body.classList.toggle("is-dark");
+  colourModeToggle.textContent = isDark ? "[Light mode]" : "[Dark mode]";
+  colourModeToggle.classList.toggle("is-active", isDark);
+});
+animationsToggle.addEventListener("click", (event) => {
+  event.preventDefault();
+  const isPaused = document.body.classList.toggle("animations-paused");
+
+  if (isPaused) {
+    sailorVenusImg.src = "assets/sailor-venus.jpeg";
+    animationsToggle.textContent = "[Play GIF]";
+    animationsToggle.classList.add("is-active");
+  } else {
+    sailorVenusImg.src = "assets/sailor-venus.gif";
+    animationsToggle.textContent = "[Pause GIF]";
+    animationsToggle.classList.remove("is-active");
+  }
+});
+
+//---------------------------------------------------------------
 // SCREENSAVER
 //---------------------------------------------------------------
 
