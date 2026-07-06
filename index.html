@@ -10,31 +10,32 @@
     <link rel="icon" type="image/png" href="assets/stuck_out_tongue_apple.png">
     <audio id="pronunciationSound" src="assets/pronunciation.mp3" preload="auto"></audio>
 
+    <link rel="preconnect" href="https://use.typekit.net">
     <link rel="stylesheet" href="https://use.typekit.net/xvf5iuk.css">
 </head>
 
 <body>
+    <div id="screensaver"></div>
     <main class="container">
         <header class="container">
             <div class="block">
-                <img
-                    src="https://web.archive.org/web/20091027031021if_/http://br.geocities.com/sailorvenusvirtual/gifminaespantada.gif">
+                <!-- TODO: add descriptive alt text -->
+                <img src="assets/sailor-venus.gif" alt="">
             </div>
 
             <!-- INFO -->
             <div class="block">
                 <p class="text-base">
                     <a href="index.html">Michael O'Regan</a> (/ˈmaɪ.kəl oʊˈɹiː.gən/ <a href="#"
-                        onclick="document.getElementById('pronunciationSound').play(); return false;">[speak]</a>) is a
+                        id="pronunciationTrigger">[speak]</a>) is a
                     graphic
-                    designer in Toronto, ON, currently pursuing a Bachelor of <a
+                    designer from Toronto, Canada, currently pursuing a Bachelor of <a
                         href="https://ampd.yorku.ca/department-of-design/design/">Design at York University</a>. He
                     welcomes
                     you
                     graciously into his web portfolio; it smells like fresh milk, eggs, fish, shellfish, tree nuts,
                     peanuts,
-                    wheat, soybeans, and sesame. Reach him by email at <a
-                        href="mailto:moregan@my.yorku.ca">moregan@my.yorku.ca</a>.
+                    wheat, soybeans, and sesame.
                 </p>
             </div>
 
@@ -43,57 +44,200 @@
                 <p class="text-base">
                     <a href="#projects" class="nav-link" data-section="projects-section">Projects</a> &middot;
                     <a href="#resume" class="nav-link" data-section="resume-section">Resume</a> &middot;
-                    <a href="#portfolio" class="nav-link" data-section="portfolio-section">Portfolio</a>
-                </p>
-            </div>
-
-            <!-- RESUME -->
-            <div id="resume-section" class="content-section" hidden>
-                <div class="pdf-container">
-                    <iframe class="pdf" src="assets/MichaelORegan_Resume_2026.pdf#view=Fit" title="Resume"
-                        frameborder="0"></iframe>
-                </div>
-                <p class="text-sm">
-                    <a href="assets/MichaelORegan_Resume_2026.pdf" class="link-sm" download>Download PDF</a>
+                    <a href="mailto:michael39245107@gmail.com">Contact</a>
                 </p>
             </div>
 
             <!-- PROJECTS -->
             <div id="projects-section" class="content-section" hidden>
+
+                <!-- RIGA BOOK FAIR -->
                 <div class="project-container">
-                    <div class="image-container">
-                        <img class="image"
-                            src="https://blob.gifcities.org/gifcities/7RLW5NKCPTLNAUZ77RPHLTP3P4TJAHL5.gif">
-                        <img class="image"
-                            src="https://blob.gifcities.org/gifcities/EHVHPLPEQUUZKGQ2ALPGNONXNBAMTFIW.gif">
-                        <img class="image"
-                            src="https://web.archive.org/web/20091027031021if_/http://br.geocities.com/sailorvenusvirtual/gifminaespantada.gif">
+                    <div class="media-container">
+                        <video class="media" autoplay loop muted playsinline preload="none" disablePictureInPicture
+                            aria-label="RGI project video loop">
+                            <source src="assets/images/Riga Book Fair (Looped) V2.m4v" type="video/mp4">
+                        </video>
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="assets/images/Riga-Book-Fair-Bookmarks-V2.gif" loading="lazy" alt="">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="https://placehold.co/600x400" loading="lazy" alt="">
                     </div>
-                    <div class="caption">
-                        <p class="text-base">Hello There &middot; 2026</p>
-                        <p class="text-sm">What's up?</p>
+                    <div class="block">
+                        <div class="project-description-wrap">
+                            <p class="text-base project-title">Riga Book Fair &middot; 2026</p>
+                            <div class="project-description is-clamped" id="riga-book-fair-description">
+                                <p class="text-body">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                                    faucibus ex sapien vitae pellentesque sem placerat. In
+                                    id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                    tempor. Pulvinar vivamus fringilla lacus
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
+                                    posuere. Ut hendrerit semper vel class
+                                    aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </p>
+                                <p class="text-body-indent">Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                                    Quisque
+                                    faucibus ex sapien vitae pellentesque sem placerat. In
+                                    id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                    tempor. Pulvinar vivamus fringilla lacus
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
+                                    posuere. Ut hendrerit semper vel class
+                                    aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </p>
+                                <p class="text-body-indent">Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                                    Quisque
+                                    faucibus ex sapien vitae pellentesque sem placerat. In
+                                    id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                    tempor. Pulvinar vivamus fringilla lacus
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
+                                    posuere. Ut hendrerit semper vel class
+                                    aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </p>
+                            </div>
+                            <a href="#" class="description-toggle" data-description="riga-book-fair-description">[Read
+                                more]</a>
+                        </div>
                     </div>
                 </div>
-                <hr>
+
+                <!-- NO OPINIONS ONLY SENTIMENTS -->
                 <div class="project-container">
-                    <div class="image-container">
-                        <img class="image"
-                            src="https://blob.gifcities.org/gifcities/7RLW5NKCPTLNAUZ77RPHLTP3P4TJAHL5.gif">
-                        <img class="image"
-                            src="https://blob.gifcities.org/gifcities/EHVHPLPEQUUZKGQ2ALPGNONXNBAMTFIW.gif">
-                        <img class="image"
-                            src="https://web.archive.org/web/20091027031021if_/http://br.geocities.com/sailorvenusvirtual/gifminaespantada.gif">
+                    <div class="media-container">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="https://placehold.co/600x400" loading="lazy" alt="">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="https://placehold.co/600x400" loading="lazy" alt="">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="https://placehold.co/600x400" loading="lazy" alt="">
                     </div>
-                    <div class="caption">
-                        <p class="text-base">Hello There &middot; 2026</p>
-                        <p class="text-sm">What's up?</p>
+                    <div class="block">
+                        <div class="project-description-wrap">
+                            <p class="text-base project-title">No Opinions Only Sentiments &middot; 2025</p>
+                            <div class="project-description is-clamped" id="no-opinions-only-sentiments-description">
+                                <p class="text-body">From the book blurb: “In the wake of tragedies like the massacres
+                                    at Virginia Tech and Simon’s Rock, public discourse
+                                    often retreats from systemic critique, favoring solemn, apolitical gest­ures of
+                                    remembrance. Aiming to confront this
+                                    avoidance, this book explores the personal, cultural, and political conditions that
+                                    foster such acts through a curated
+                                    collection of archival imagery and retellings of unconventional narratives. The
+                                    purpose of this book is to be a
+                                    conversation starter rather than a definitive answer. The reader is challenged to
+                                    sit with ambiguity and to grapple with
+                                    uncomfortable truths about individual and collective failures.”
+                                </p>
+                                <p class="text-body-indent">5.25″ × 7.75″, 48 pp. Laser printed on various substrates
+                                    including ruled notebook paper. Coptic bound with exposed
+                                    spine.
+                                </p>
+                                <p class="text-body-indent">Created for FA/DESN 2001 (Communication Design Process),
+                                    York University. Educator Support: David Cabianca.
+                                </p>
+                            </div>
+                            <a href="#" class="description-toggle"
+                                data-description="no-opinions-only-sentiments-description">[Read
+                                more]</a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- POWER OF PATTERN -->
+                <div class="project-container">
+                    <div class="media-container">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="assets/images/power-of-pattern2.jpeg" loading="lazy" alt="">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="assets/images/power-of-pattern3.jpeg" loading="lazy" alt="">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="assets/images/power-of-pattern6.jpeg" loading="lazy" alt="">
+                    </div>
+                    <div class="block">
+                        <div class="project-description-wrap">
+                            <p class="text-base project-title">Power of Pattern &middot; 2023</p>
+                            <div class="project-description is-clamped" id="power-of-pattern-description">
+                                <p class="text-body">A series of tiles inspired by the past, present, and speculative
+                                    future of electronic music. The
+                                    shared visual vocabulary of the tiles (glitchy, pixelated, geometric effects
+                                    meant to evoke printed circuit boards and video compression errors) emerges from
+                                    similarities in the underlying node structure.</p>
+                                <p class="text-body-indent">The final triptych traces a loose narrative arc from the
+                                    invention of early synthesis hardware, to the current dominance of music
+                                    streaming services and algorithm-driven curation, toward an optimistic vision of
+                                    the future where independent artists prevail over platform capitalism, leading
+                                    to an era of unprecedented technological and artistic innovation.</p>
+                                <p class="text-body-indent">Designed as a participant in FA/DESN 1002 (Understanding
+                                    Form
+                                    and Context), York University. Educator Support: Ronald Tau.</p>
+                            </div>
+                            <a href="#" class="description-toggle" data-description="power-of-pattern-description">[Read
+                                more]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLANK PROJECT -->
+                <div class="project-container">
+                    <div class="media-container">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="https://placehold.co/600x400" loading="lazy" alt="">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="https://placehold.co/600x400" loading="lazy" alt="">
+                        <!-- TODO: add descriptive alt text -->
+                        <img class="media" src="https://placehold.co/600x400" loading="lazy" alt="">
+                    </div>
+                    <div class="block">
+                        <div class="project-description-wrap">
+                            <p class="text-base project-title">Hello There &middot; 2026</p>
+                            <div class="project-description is-clamped" id="project-blank-description">
+                                <p class="text-body">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                                    faucibus ex sapien vitae pellentesque sem placerat. In
+                                    id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                    tempor. Pulvinar vivamus fringilla lacus
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
+                                    posuere. Ut hendrerit semper vel class
+                                    aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </p>
+                                <p class="text-body-indent">Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                                    Quisque
+                                    faucibus ex sapien vitae pellentesque sem placerat. In
+                                    id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                    tempor. Pulvinar vivamus fringilla lacus
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
+                                    posuere. Ut hendrerit semper vel class
+                                    aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </p>
+                                <p class="text-body-indent">Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                                    Quisque
+                                    faucibus ex sapien vitae pellentesque sem placerat. In
+                                    id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                    tempor. Pulvinar vivamus fringilla lacus
+                                    nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
+                                    posuere. Ut hendrerit semper vel class
+                                    aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </p>
+                            </div>
+                            <a href="#" class="description-toggle" data-description="project-blank-description">[Read
+                                more]</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF PROJECTS -->
+
+            <!-- RESUME -->
+            <div id="resume-section" class="content-section" hidden>
+                <div class="pdf-container">
+                    <iframe class="pdf" data-src="assets/MichaelORegan_Resume_2026.pdf#view=Fit" title="Resume"
+                        frameborder="0"></iframe>
+                </div>
+                <p class="text-base">
+                    <a href="assets/MichaelORegan_Resume_2026.pdf" download>[Download PDF]</a>
+                </p>
             </div>
         </header>
 
         <footer class="container">
-            <p class="text-sm">
+            <p class="text-slug">
                 Updated 16 June 2026, 6:59 PM EST
             </p>
         </footer>

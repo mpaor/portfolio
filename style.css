@@ -1,28 +1,64 @@
 /*--------------------------------------------------------------
-# TOKENS
+# DESIGN TOKENS
 ---------------------------------------------------------------*/
 
 :root {
-    --space: 1.2rem;
-    --content-width: 800px;
-    --pdf-width: 600px;
+  --space: 1.2rem;
+  --indent: 2.4rem;
+  --line-height: 1.2;
+  --content-width: 800px;
+  --pdf-width: 600px;
 
-    --debug-outline: red;
-    --debug-outline-2: transparent;
+  --debug-outline: transparent;
+  --debug-outline-2: blue;
+  --debug-outline-3: transparent;
 
-    --background: #f5f5f5;
-    --normal-text: #c6c6c6;
-    --link-static: #000000;
-    --link-hover: #ff00ff;
-    --link-active: #0000ff;
-    --shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+  --background: #f5f5f5;
+  --normal-text: #c6c6c6;
+  --link-static: #000000;
+  --link-hover: #ff00ff;
+  --link-active: #0000ff;
+  --shadow:
+    rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
+    rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
+    rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+    rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+    rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
+    rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
+    rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 
-    /* cursor: url("assets/stuck_out_tongue_apple.png"), default; */
+  /* cursor: url("assets/stuck_out_tongue_apple.png"), default; */
 }
 
 ::selection {
-    background: black;
-    color: white;
+  background: black;
+  color: white;
+}
+
+/*--------------------------------------------------------------
+# FONTS
+---------------------------------------------------------------*/
+
+@font-face {
+  font-family: "Source Serif 4";
+  src:
+    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Roman.otf.woff2")
+      format("woff2"),
+    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Roman.otf.woff")
+      format("woff");
+  font-style: normal;
+  font-weight: 200 900;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src:
+    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Italic.otf.woff2")
+      format("woff2"),
+    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Italic.otf.woff")
+      format("woff");
+  font-style: italic;
+  font-weight: 200 900;
 }
 
 /*--------------------------------------------------------------
@@ -30,141 +66,202 @@
 ---------------------------------------------------------------*/
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /*--------------------------------------------------------------
-# PAGE LAYOUT
+# PAGE STRUCTURE
 ---------------------------------------------------------------*/
 
 body {
-    font-size: 24px;
+  font-size: 24px;
 
-    /**/ background: var(--background); /**/
-    
-    /*background-image: url("https://web.archive.org/web/20090903062816im_/http://www.geocities.com/super_saiyan_vegeta112786/gohankkha.gif");
+  background: var(--background);
+
+  /*background-image: url("https://web.archive.org/web/20090903062816im_/http://www.geocities.com/super_saiyan_vegeta112786/gohankkha.gif");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;*/
+    background-attachment: fixed;/**/
 
-    color: var(--normal-text);
+  color: var(--normal-text);
 }
 
 main {
-    min-height: 100vh;
+  min-height: 100vh;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    /**/ margin-left: var(--space); 
-    margin-right: var(--space); /**/
+  margin-left: var(--space);
+  margin-right: var(--space);
 
-    /* margin-left: max(5vw, var(--space));
-    margin-right: max(5vw, var(--space)); /**/
-    
-    gap: 6rem;
+  /* 
 
+    margin-left: max(5vw, var(--space));
+    margin-right: max(5vw, var(--space)); 
     background: var(--background);
 
+    /**/
+
+  gap: 6rem;
 }
 
 header {
-    flex: 1;
-    padding-top: var(--space);
-    gap: var(--space);
+  flex: 1;
+  /* padding-top: var(--space); */
+  gap: var(--space);
 }
 
 footer {
-    margin-bottom: var(--space);
+  margin-bottom: var(--space);
 }
 
 hr {
-    border: none;
-    height: 1px;
-    background: black;
+  border: none;
+  height: calc(var(--space) * 2);
+  background: blue;
 }
 
 /*--------------------------------------------------------------
-# WRAPPERS
+# LAYOUT PRIMITIVES
 ---------------------------------------------------------------*/
 
 .container {
-    max-width: var(--content-width);
+  max-width: var(--content-width);
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    outline-style: solid;
-    outline-color: var(--debug-outline);
-    outline-width: 1px;
+  outline: 1px solid var(--debug-outline);
 }
 
 .block {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
-    
-    outline-style: solid;
-    outline-color: var(--debug-outline);
-    outline-width: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+
+  outline: 1px solid var(--debug-outline);
 }
 
-.image-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
-
-    align-items: center;
-
-    padding: calc(var(--space));
-
-    /* background: gray; */
-    
-    outline-style: solid;
-    outline-color: var(--debug-outline-2);
-    outline-width: 1px;
-}
-
-.image {
-    width: min(100%, 800px);
-    height: auto;
-    display: block;
-}
-
-.project-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
-}
-
-.caption {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-
-    outline-style: solid;
-    outline-color: var(--debug-outline);
-    outline-width: 1px;
-}
+/*--------------------------------------------------------------
+# NAVIGATION
+---------------------------------------------------------------*/
 
 .nav-link.is-active {
-    color: var(--link-active);
+  color: var(--link-active);
+}
+
+.nav-link.is-active:hover {
+  color: var(--link-hover);
 }
 
 .content-section[hidden] {
-    display: none !important;
+  display: none !important;
 }
 
 .content-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+/*--------------------------------------------------------------
+# PROJECT COMPONENTS
+---------------------------------------------------------------*/
+
+video::-webkit-media-controls-picture-in-picture-button {
+  display: none;
+}
+
+/* Project media stack wrapper */
+.media-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+
+  align-items: flex-start;
+
+  /* background: gray; */
+
+  outline: 1px solid var(--debug-outline-3);
+}
+
+/* Shared project media sizing for images and videos */
+.media {
+  width: auto;
+  max-width: min(100%, var(--content-width));
+  max-height: 60vh;
+  height: auto;
+  display: block;
+
+  outline: 1px solid var(--debug-outline-3);
+}
+
+/* Single project entry: media + copy */
+.project-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+
+  /* padding-top: calc(var(--space) * 2); */
+
+  outline: 0px solid var(--debug-outline-3);
+}
+
+/* Groups title, description paragraphs, and toggle */
+.project-description-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+
+  outline: 1px solid var(--debug-outline-3);
+}
+
+/* Project title line (name + year) */
+.project-title {
+  outline: 1px solid var(--debug-outline-3);
+}
+
+/* Expandable description body (multiple paragraphs) */
+.project-description {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  outline: 1px solid var(--debug-outline-3);
+}
+
+/* Clamped state used before description is expanded */
+.project-description.is-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+/* Interactive text control that toggles description clamp */
+.description-toggle {
+  display: inline-block;
+  align-self: flex-start;
+  white-space: nowrap;
+
+  /* TEMP DEBUG: remove when project layout debugging is done */
+  outline: 1px solid var(--debug-outline-3);
+}
+
+.description-toggle.is-active {
+  color: var(--link-static);
+}
+
+.description-toggle.is-active:hover {
+  color: var(--link-hover);
 }
 
 /*--------------------------------------------------------------
@@ -172,86 +269,105 @@ hr {
 ---------------------------------------------------------------*/
 
 .text-slug {
-    font-family: "Menlo", monospace;
-    font-size: 0.667em;
-    font-weight: 400;
-    
-    padding-left: 1.2rem ;
-    text-indent: -1.2rem ;
-
-    line-height: 1.2rem;
+  font-family: "Apple Chancery", monospace;
+  font-size: 0.667em;
+  font-weight: 400;
 }
 
 .text-sm {
-    font-family: "SchoolBook";
-    font-size: 0.667em;
-    font-weight: 400;
-    
-    padding-left: 1.2rem ;
-    text-indent: -1.2rem ;
+  font-family: "SchoolBook";
+  font-size: 0.667em;
+  font-weight: 400;
+}
 
-    line-height: 1.2rem;
+.text-body,
+.text-body-indent {
+  font-family: "SchoolBook", serif;
+  font-size: 1em;
+  font-weight: 400;
+
+  /* hyphens: auto; */
+}
+
+.text-body-indent {
+  text-indent: var(--indent);
 }
 
 .text-base {
-    font-family: "SchoolBook", serif;
-    font-size: 1em;
-    font-weight: 400;
+  font-size: 1em;
 }
 
 .text-lg {
-    font-family: "SchoolBook", serif;
-    font-size: 1.5em;
-    font-weight: 400;
+  font-size: 1.5em;
 }
 
 .text-xl {
-    font-family: "SchoolBook", serif;
-    font-size: 2.25em;
-    font-weight: 400;
+  font-size: 2.25em;
 }
 
-/* LINKS */
-a {
-    color: var(--link-static);
-    font-style: italic;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: var(--link-hover);
-}
-
-.link-sm {
-    color: var(--link-static);
+.text-base,
+.text-lg,
+.text-xl {
+  font-family: "SchoolBook", serif;
+  font-weight: 400;
 }
 
 /*--------------------------------------------------------------
-# PDF EMBED
+# LINKS
+---------------------------------------------------------------*/
+
+a {
+  color: var(--link-static);
+  font-style: italic;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+.link-sm {
+  color: var(--link-static);
+}
+
+/*--------------------------------------------------------------
+# PDF
 ---------------------------------------------------------------*/
 
 .pdf-container {
-    max-width: 600px;
+  max-width: var(--pdf-width);
 
-    outline-style: solid;
-    outline-color: var(--debug-outline);
-    outline-width: 1px;
+  outline: 1px solid var(--debug-outline);
 }
 
 .pdf {
-    display: block;
+  display: block;
 
-    width: 100%;
-    aspect-ratio: 8.5 / 11;
-    border: none;
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  border: none;
 
-    border-radius: 5px;
+  border-radius: 5px;
 
-    box-shadow: var(--shadow);
-    outline-color: var(--debug-outline);
-    outline-width: 1px;
+  box-shadow: var(--shadow);
+  outline-color: var(--debug-outline);
+  outline-width: 1px;
 }
 
+/*--------------------------------------------------------------
+# SCREENSAVER
+---------------------------------------------------------------*/
 
+.circle {
+  position: absolute;
+}
 
+#screensaver {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
