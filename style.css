@@ -1,4 +1,54 @@
 /*--------------------------------------------------------------
+# FONTS
+---------------------------------------------------------------*/
+
+@font-face {
+  font-family: "HAL Timezone Mono";
+  src: url("assets/fonts/HALTimezoneMonoUnlicensed-Light.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone Mono";
+  src: url("assets/fonts/HALTimezoneMonoUnlicensed-Book.otf") format("opentype");
+  font-weight: 350;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone Mono";
+  src: url("assets/fonts/HALTimezoneMonoUnlicensed-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone Mono";
+  src: url("assets/fonts/HALTimezoneMonoUnlicensed-Medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone Mono";
+  src: url("assets/fonts/HALTimezoneMonoUnlicensed-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone Mono";
+  src: url("assets/fonts/HALTimezoneMonoUnlicensed-Black.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/*--------------------------------------------------------------
 # DESIGN TOKENS
 ---------------------------------------------------------------*/
 
@@ -6,11 +56,11 @@
   --space: 1.2rem;
   --indent: 2.4rem;
   --line-height: 1.2;
-  --content-width: 975px;
-  --description-width: 750px;
+  --content-width: 950px;
+  --description-width: calc(var(--content-width) * 0.8);
 
   --debug-outline: transparent;
-  --debug-outline-2: transparent;
+  --debug-outline-2: blue;
   --debug-outline-3: transparent;
 
   --background: #f5f5f5;
@@ -63,7 +113,7 @@ html {
 ---------------------------------------------------------------*/
 
 body {
-  font-size: 28px;
+  font-size: 29px;
   background: var(--background);
   color: var(--normal-text);
 }
@@ -114,6 +164,10 @@ hr {
 .intro {
   max-width: var(--content-width);
 
+  box-shadow: -1px 0 0 var(--debug-outline-2) inset;
+}
+
+.nav-bar {
   box-shadow: -1px 0 0 var(--debug-outline-2) inset;
 }
 
@@ -200,15 +254,15 @@ video::-webkit-media-controls-picture-in-picture-button {
 ---------------------------------------------------------------*/
 
 .text-slug {
-  font-family: "Courier", monospace;
+  font-family: "Hal Timezone Mono", monospace;
   font-size: 0.512em; /* 15.36px */
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .text-sm,
 .text-base,
 .text-lg {
-  font-family: "SchoolBook", serif;
+  font-family: "HAL Timezone Mono", monospace;
   font-weight: 400;
 }
 
