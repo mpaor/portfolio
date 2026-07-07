@@ -113,6 +113,21 @@ colourModeToggle.addEventListener("click", (event) => {
   colourModeToggle.classList.toggle("is-active", isDark);
 });
 
+animationsToggle.addEventListener("click", (event) => {
+  event.preventDefault();
+  const isPaused = document.body.classList.toggle("animations-paused");
+
+  if (isPaused) {
+    sailorVenusImg.src = "assets/sailor-venus.jpeg";
+    animationsToggle.textContent = "[Play GIF]";
+    animationsToggle.classList.add("is-active");
+  } else {
+    sailorVenusImg.src = "assets/sailor-venus.gif";
+    animationsToggle.textContent = "[Pause GIF]";
+    animationsToggle.classList.remove("is-active");
+  }
+});
+
 //---------------------------------------------------------------
 // SCREENSAVER
 //---------------------------------------------------------------
