@@ -7,14 +7,11 @@
   --indent: 2.4rem;
   --line-height: 1.2;
   --content-width: 975px;
+  --description-width: 750px;
 
   --debug-outline: transparent;
   --debug-outline-2: transparent;
-
   --debug-outline-3: transparent;
-
-  --black: #000000;
-  --white: #ffffff;
 
   --background: #f5f5f5;
   --normal-text: #c6c6c6;
@@ -87,7 +84,6 @@ main {
 
 header {
   flex: 1;
-  padding-top: var(--space);
   gap: var(--space);
 }
 
@@ -117,6 +113,8 @@ hr {
 
 .intro {
   max-width: var(--content-width);
+
+  box-shadow: -1px 0 0 var(--debug-outline-2) inset;
 }
 
 /*--------------------------------------------------------------
@@ -184,9 +182,8 @@ video::-webkit-media-controls-picture-in-picture-button {
   flex-direction: column;
   gap: var(--space);
 
-  max-width: calc(var(--content-width) * 0.8);
+  max-width: var(--description-width);
 
-  outline: 1px solid var(--debug-outline);
   box-shadow: -1px 0 0 var(--debug-outline-2) inset;
 }
 
