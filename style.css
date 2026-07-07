@@ -242,6 +242,14 @@ video::-webkit-media-controls-picture-in-picture-button {
   outline: 1px solid var(--debug-outline-3);
 }
 
+.project-type {
+  font-family: "Courier", monospace;
+  font-size: 0.667em;
+  font-weight: 400;
+
+  outline: 1px solid var(--debug-outline-3);
+}
+
 /* Expandable description body (multiple paragraphs) */
 .project-description {
   display: flex;
@@ -258,16 +266,6 @@ video::-webkit-media-controls-picture-in-picture-button {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   line-clamp: 3;
-}
-
-/* Interactive text control that toggles description clamp */
-.description-toggle {
-  display: inline-block;
-  align-self: flex-start;
-  white-space: nowrap;
-
-  /* TEMP DEBUG: remove when project layout debugging is done */
-  outline: 1px solid var(--debug-outline-3);
 }
 
 .description-toggle.is-active {
@@ -324,6 +322,20 @@ video::-webkit-media-controls-picture-in-picture-button {
 .text-xl {
   font-family: "SchoolBook", serif;
   font-weight: 400;
+}
+
+blockquote {
+  padding-left: var(--indent);
+  font-style: italic;
+}
+
+.more {
+  display: none;
+}
+
+.tab {
+  display: inline-block;
+  padding-left: 2.4em; /* Adjust to control tab size */
 }
 
 /*--------------------------------------------------------------
@@ -392,8 +404,8 @@ a:hover {
 
 #settings-panel {
   position: fixed;
-  top: calc(var(--space) * 0);
-  right: calc(var(--space) * 0.5);
+  top: 66.66vh;
+  right: 0;
 
   width: fit-content;
 
@@ -407,7 +419,6 @@ a:hover {
   box-sizing: border-box;
 
   background: rgba(128, 128, 128, 0.5);
-  transition: background 0.2s ease;
 
   backdrop-filter: blur(7px);
   border-radius: var(--space);
@@ -420,7 +431,6 @@ a:hover {
 }
 
 #settings-panel.is-open {
-  background: rgba(0, 255, 0, 0.5);
   box-shadow: var(--shadow);
 }
 
@@ -429,7 +439,7 @@ a:hover {
 }
 
 .settings-link.is-active {
-  color: var(--link-active);
+  color: var(--link-static);
 }
 
 .settings-link.is-active:hover {

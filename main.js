@@ -50,19 +50,32 @@ if (pronunciationTrigger && pronunciationSound) {
   });
 }
 
-// Description toggle click event listeners
+//---------------------------------------------------------------
+// DESCRIPTION TOGGLE EVENT LISTENERS
+//---------------------------------------------------------------
+
 descriptionToggles.forEach((toggle) => {
   toggle.addEventListener("click", (event) => {
     event.preventDefault();
 
     const descriptionId = toggle.dataset.description;
-    const description = document.getElementById(descriptionId);
 
-    if (!description) return;
+    var dots = document.querySelectorAll(
+      ".dots[data-description='" + descriptionId + "']",
+    );
+    var more = document.querySelectorAll(
+      ".more[data-description='" + descriptionId + "']",
+    );
 
-    const isExpanded = description.classList.toggle("is-clamped") === false;
-    toggle.textContent = isExpanded ? "[Read less]" : "[Read more]";
-    toggle.classList.toggle("is-active", isExpanded);
+    if (dots[0].style.display === "none") {
+      dots.forEach((el) => (el.style.display = "inline"));
+      toggle.innerHTML = "[Read more]";
+      more.forEach((el) => (el.style.display = "none"));
+    } else {
+      dots.forEach((el) => (el.style.display = "none"));
+      toggle.innerHTML = "[Read less]";
+      more.forEach((el) => (el.style.display = "inline"));
+    }
   });
 });
 
@@ -88,8 +101,8 @@ if (settingsToggle && settingsSection) {
     settingsSection.hidden = !isHidden;
     settingsPanel.classList.toggle("is-open", isHidden);
     settingsToggle.innerHTML = isHidden
-      ? '[<span class="toggle-symbol">−</span>] Accessibility'
-      : '[<span class="toggle-symbol">+</span>] Accessibility';
+      ? '[<span class="toggle-symbol">−</span>]'
+      : '[<span class="toggle-symbol">+</span>]';
     settingsToggle.classList.toggle("is-active", isHidden);
   });
 }
