@@ -201,7 +201,7 @@ video::-webkit-media-controls-picture-in-picture-button {
 
 .text-slug {
   font-family: "Courier", monospace;
-  font-size: 0.8em; /* 19.2px */
+  font-size: 0.64em; /* 15.36px */
   font-weight: 400;
 }
 
