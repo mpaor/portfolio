@@ -6,8 +6,8 @@
   --space: 1.2rem;
   --indent: 2.4rem;
   --line-height: 1.2;
-  --content-width: 950px;
-  --description-width: calc(var(--content-width) * 0.8);
+  --content-width: 760px;
+  --description-width: 760px;
 
   --debug-outline: transparent;
   --debug-outline-2: transparent;
@@ -93,6 +93,66 @@ body.is-dark ::selection {
   font-style: normal;
 }
 
+/* PROPORTIONAL FONT VARIANTS (NOT USED) */
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-RegularItalic.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-MediumItalic.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("assets/fonts/HALTimezoneUnlicensed-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 /*--------------------------------------------------------------
 # RESET
 ---------------------------------------------------------------*/
@@ -145,6 +205,8 @@ hr {
   border: none;
   height: 1px;
   background: var(--link-static);
+
+  margin-bottom: calc(var(--space) * 2);
 }
 
 /*--------------------------------------------------------------
@@ -210,6 +272,8 @@ video::-webkit-media-controls-picture-in-picture-button {
   gap: var(--space);
 
   align-items: flex-start;
+
+  margin-bottom: calc(var(--space) * 2);
 }
 
 /* Shared project media sizing for images and videos */
@@ -353,7 +417,7 @@ a:hover {
 #settings-panel {
   position: fixed;
 
-  top: 75vh;
+  top: 60vh;
   right: calc(var(--space) * 1);
 
   width: fit-content;
