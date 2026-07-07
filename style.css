@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# DESIGN TOKENS TETSTSTSTSTST
+# DESIGN TOKENS
 ---------------------------------------------------------------*/
 
 :root {
@@ -63,7 +63,7 @@ html {
 ---------------------------------------------------------------*/
 
 body {
-  font-size: 24px;
+  font-size: 28px;
   background: var(--background);
   color: var(--normal-text);
 }
@@ -201,7 +201,7 @@ video::-webkit-media-controls-picture-in-picture-button {
 
 .text-slug {
   font-family: "Courier", monospace;
-  font-size: 0.64em; /* 15.36px */
+  font-size: 0.512em; /* 15.36px */
   font-weight: 400;
 }
 
@@ -213,15 +213,15 @@ video::-webkit-media-controls-picture-in-picture-button {
 }
 
 .text-sm {
-  font-size: 0.8em; /* 19.2px */
+  font-size: 0.64em; /* 19.2px */
 }
 
 .text-base {
-  font-size: 1em; /* 24px */
+  font-size: 0.8em; /* 24px */
 }
 
 .text-lg {
-  font-size: 1.25em; /* 30px */
+  font-size: 1em; /* 30px */
 }
 
 .more {
@@ -251,12 +251,6 @@ a:hover {
 /*--------------------------------------------------------------
 # PDF
 ---------------------------------------------------------------*/
-
-.pdf-container {
-  max-width: var(--media-width);
-
-  outline: 1px solid var(--debug-outline);
-}
 
 .pdf {
   display: block;
