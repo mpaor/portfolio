@@ -10,7 +10,7 @@
   --description-width: calc(var(--content-width) * 0.8);
 
   --debug-outline: transparent;
-  --debug-outline-2: blue;
+  --debug-outline-2: transparent;
   --debug-outline-3: transparent;
 
   --background: #f5f5f5;
