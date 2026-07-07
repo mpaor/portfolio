@@ -6,11 +6,11 @@
   --space: 1.2rem;
   --indent: 2.4rem;
   --line-height: 1.2;
-  --content-width: 800px;
-  --pdf-width: 600px;
+  --content-width: 950px;
 
   --debug-outline: transparent;
-  --debug-outline-2: red;
+  --debug-outline-2: transparent;
+
   --debug-outline-3: transparent;
 
   --black: #000000;
@@ -18,61 +18,32 @@
 
   --background: #f5f5f5;
   --normal-text: #c6c6c6;
-  --link-static: #000000;
+  --link-static: #0c0c0c;
   --link-hover: #ff00ff;
   --link-active: #0000ff;
   --shadow:
-    rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
-    rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
-    rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+    rgba(14, 63, 126, 0.04) 0px 0px 0px 1px,
+    rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px,
     rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
-    rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
-    rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
-    rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
-
-  /* cursor: url("assets/stuck_out_tongue_apple.png"), default; */
+    rgba(42, 51, 70, 0.04) 0px 6px 6px -3px,
+    rgba(14, 63, 126, 0.04) 0px 12px 12px -6px,
+    rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
 }
 
 ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: #0c0c0c;
+  color: #f5f5f5;
 }
 
 body.is-dark {
-  --background: #000000;
+  --background: #0c0c0c;
   --normal-text: #6c6c6c;
-  --link-static: #ffffff;
+  --link-static: #f5f5f5;
 }
 
 body.is-dark ::selection {
-  background: #ffffff;
-  color: #000000;
-}
-
-/*--------------------------------------------------------------
-# FONTS
----------------------------------------------------------------*/
-
-@font-face {
-  font-family: "Source Serif 4";
-  src:
-    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Roman.otf.woff2")
-      format("woff2"),
-    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Roman.otf.woff")
-      format("woff");
-  font-style: normal;
-  font-weight: 200 900;
-}
-
-@font-face {
-  font-family: "Source Serif 4";
-  src:
-    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Italic.otf.woff2")
-      format("woff2"),
-    url("../assets/fonts/source-serif-4/SourceSerif4Variable-Italic.otf.woff")
-      format("woff");
-  font-style: italic;
-  font-weight: 200 900;
+  background: #f5f5f5;
+  color: #f5f5f5;
 }
 
 /*--------------------------------------------------------------
@@ -87,6 +58,7 @@ body.is-dark ::selection {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 /*--------------------------------------------------------------
@@ -95,18 +67,13 @@ html {
 
 body {
   font-size: 24px;
-
   background: var(--background);
-
-  /*background-image: url("https://web.archive.org/web/20090903062816im_/http://www.geocities.com/super_saiyan_vegeta112786/gohankkha.gif");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;/**/
-
   color: var(--normal-text);
 }
 
 main {
+  max-width: var(--content-width);
+
   min-height: 100vh;
 
   display: flex;
@@ -115,20 +82,12 @@ main {
   margin-left: var(--space);
   margin-right: var(--space);
 
-  /* 
-
-    margin-left: max(5vw, var(--space));
-    margin-right: max(5vw, var(--space)); 
-    background: var(--background);
-
-    /**/
-
   gap: 6rem;
 }
 
 header {
   flex: 1;
-  /* padding-top: var(--space); */
+  padding-top: var(--space);
   gap: var(--space);
 }
 
@@ -146,8 +105,9 @@ hr {
 # LAYOUT PRIMITIVES
 ---------------------------------------------------------------*/
 
+/* Container for all content, including header, main, and footer */
 .container {
-  max-width: var(--content-width);
+  max-width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -155,12 +115,8 @@ hr {
   outline: 1px solid var(--debug-outline);
 }
 
-.block {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space);
-
-  outline: 1px solid var(--debug-outline);
+.intro {
+  max-width: var(--content-width);
 }
 
 /*--------------------------------------------------------------
@@ -193,39 +149,33 @@ video::-webkit-media-controls-picture-in-picture-button {
   display: none;
 }
 
-/* Project media stack wrapper */
-.media-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space);
-
-  align-items: flex-start;
-
-  /* background: gray; */
-
-  outline: 1px solid var(--debug-outline-3);
-}
-
-/* Shared project media sizing for images and videos */
-.media {
-  width: auto;
-  max-width: min(100%, var(--content-width));
-  max-height: 60vh;
-  height: auto;
-  display: block;
-
-  outline: 1px solid var(--debug-outline-3);
-}
-
 /* Single project entry: media + copy */
 .project-container {
   display: flex;
   flex-direction: column;
   gap: var(--space);
 
-  /* padding-top: calc(var(--space) * 2); */
+  align-items: flex-start;
+}
 
-  outline: 0px solid var(--debug-outline-3);
+/* Shared project media sizing for images and videos */
+.media {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 70vw;
+  max-height: 75vh;
+
+  object-fit: contain;
+  object-position: left;
+}
+
+@media (max-width: 600px) {
+  .media {
+    min-width: 100%;
+  }
 }
 
 /* Groups title, description paragraphs, and toggle */
@@ -234,38 +184,10 @@ video::-webkit-media-controls-picture-in-picture-button {
   flex-direction: column;
   gap: var(--space);
 
-  outline: 1px solid var(--debug-outline-3);
-}
+  max-width: calc(var(--content-width) * 0.8);
 
-/* Project title line (name + year) */
-.project-title {
-  outline: 1px solid var(--debug-outline-3);
-}
-
-.project-type {
-  font-family: "Courier", monospace;
-  font-size: 0.667em;
-  font-weight: 400;
-
-  outline: 1px solid var(--debug-outline-3);
-}
-
-/* Expandable description body (multiple paragraphs) */
-.project-description {
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-
-  outline: 1px solid var(--debug-outline-3);
-}
-
-/* Clamped state used before description is expanded */
-.project-description.is-clamped {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  outline: 1px solid var(--debug-outline);
+  box-shadow: -1px 0 0 var(--debug-outline-2) inset;
 }
 
 .description-toggle.is-active {
@@ -282,51 +204,27 @@ video::-webkit-media-controls-picture-in-picture-button {
 
 .text-slug {
   font-family: "Courier", monospace;
-  font-size: 0.667em;
+  font-size: 0.8em; /* 19.2px */
+  font-weight: 400;
+}
+
+.text-sm,
+.text-base,
+.text-lg {
+  font-family: "SchoolBook", serif;
   font-weight: 400;
 }
 
 .text-sm {
-  font-family: "SchoolBook";
-  font-size: 0.667em;
-  font-weight: 400;
-}
-
-.text-body,
-.text-body-indent {
-  font-family: "SchoolBook", serif;
-  font-size: 1em;
-  font-weight: 400;
-
-  /* hyphens: auto; */
-}
-
-.text-body-indent {
-  text-indent: var(--indent);
+  font-size: 0.8em; /* 19.2px */
 }
 
 .text-base {
-  font-size: 1em;
+  font-size: 1em; /* 24px */
 }
 
 .text-lg {
-  font-size: 1.5em;
-}
-
-.text-xl {
-  font-size: 2.25em;
-}
-
-.text-base,
-.text-lg,
-.text-xl {
-  font-family: "SchoolBook", serif;
-  font-weight: 400;
-}
-
-blockquote {
-  padding-left: var(--indent);
-  font-style: italic;
+  font-size: 1.25em; /* 30px */
 }
 
 .more {
@@ -353,16 +251,12 @@ a:hover {
   color: var(--link-hover);
 }
 
-.link-sm {
-  color: var(--link-static);
-}
-
 /*--------------------------------------------------------------
 # PDF
 ---------------------------------------------------------------*/
 
 .pdf-container {
-  max-width: var(--pdf-width);
+  max-width: var(--media-width);
 
   outline: 1px solid var(--debug-outline);
 }
@@ -371,8 +265,15 @@ a:hover {
   display: block;
 
   width: 100%;
-  aspect-ratio: 8.5 / 11;
-  border: none;
+  height: auto;
+
+  aspect-ratio: 1.375;
+
+  max-width: 70vw;
+  max-height: 75vh;
+
+  object-fit: contain;
+  object-position: left;
 
   border-radius: 5px;
 
@@ -404,8 +305,9 @@ a:hover {
 
 #settings-panel {
   position: fixed;
-  top: 66.66vh;
-  right: 0;
+
+  top: 75vh;
+  right: calc(var(--space) * 1);
 
   width: fit-content;
 
@@ -415,13 +317,14 @@ a:hover {
   flex-direction: column;
   align-items: flex-end;
 
-  padding: var(--space);
+  padding-block: calc(var(--space) * 1.25);
+  padding-inline: calc(var(--space) * 1);
   box-sizing: border-box;
 
-  background: rgba(128, 128, 128, 0.5);
+  background: rgba(0, 255, 0, 0.5);
 
   backdrop-filter: blur(7px);
-  border-radius: var(--space);
+  border-radius: calc(var(--space) * 0.8);
 
   font-family: "Courier", monospace;
   font-size: 0.667em;

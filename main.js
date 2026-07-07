@@ -69,11 +69,11 @@ descriptionToggles.forEach((toggle) => {
 
     if (dots[0].style.display === "none") {
       dots.forEach((el) => (el.style.display = "inline"));
-      toggle.innerHTML = "[Read more]";
+      toggle.innerHTML = "[Read&nbsp;more]";
       more.forEach((el) => (el.style.display = "none"));
     } else {
       dots.forEach((el) => (el.style.display = "none"));
-      toggle.innerHTML = "[Read less]";
+      toggle.innerHTML = "[Read&nbsp;less]";
       more.forEach((el) => (el.style.display = "inline"));
     }
   });
@@ -86,13 +86,6 @@ descriptionToggles.forEach((toggle) => {
 const settingsPanel = document.getElementById("settings-panel");
 const settingsToggle = document.getElementById("settingsToggle");
 const settingsSection = document.getElementById("settings");
-
-if (settingsPanel) {
-  settingsPanel.addEventListener("hover", (event) => {
-    event.stopPropagation();
-    settingsPanel.classList.add("is-open");
-  });
-}
 
 if (settingsToggle && settingsSection) {
   settingsToggle.addEventListener("click", (event) => {
@@ -118,20 +111,6 @@ colourModeToggle.addEventListener("click", (event) => {
   const isDark = document.body.classList.toggle("is-dark");
   colourModeToggle.textContent = isDark ? "[Light mode]" : "[Dark mode]";
   colourModeToggle.classList.toggle("is-active", isDark);
-});
-animationsToggle.addEventListener("click", (event) => {
-  event.preventDefault();
-  const isPaused = document.body.classList.toggle("animations-paused");
-
-  if (isPaused) {
-    sailorVenusImg.src = "assets/sailor-venus.jpeg";
-    animationsToggle.textContent = "[Play GIF]";
-    animationsToggle.classList.add("is-active");
-  } else {
-    sailorVenusImg.src = "assets/sailor-venus.gif";
-    animationsToggle.textContent = "[Pause GIF]";
-    animationsToggle.classList.remove("is-active");
-  }
 });
 
 //---------------------------------------------------------------
